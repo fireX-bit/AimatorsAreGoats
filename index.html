@@ -7,7 +7,6 @@
 <meta name="description" content="OpenMotion is a free, open-source AI animation tool. Turn text prompts, sketches, and keyframes into smooth motion. Windows and macOS available now. Linux coming soon.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
 <style>
-  /* ============ theme tokens ============ */
   :root[data-theme="dark"] {
     --bg: #0a0a0b;
     --bg-elev: #0d0d0f;
@@ -34,7 +33,6 @@
     --shadow: rgba(0,0,0,0.5);
     --grid-line: #141417;
     --scorpion: #ffffff;
-    --scorpion-glow: rgba(255,255,255,0.55);
   }
   :root[data-theme="light"] {
     --bg: #fafafa;
@@ -62,10 +60,8 @@
     --shadow: rgba(0,0,0,0.08);
     --grid-line: #e4e4e8;
     --scorpion: #18181b;
-    --scorpion-glow: rgba(37,99,235,0.35);
   }
 
-  /* ============ reset ============ */
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
@@ -84,7 +80,6 @@
   a { color: inherit; text-decoration: none; }
   button { font: inherit; cursor: none; border: none; background: none; color: inherit; }
 
-  /* ============ scorpion canvas ============ */
   #scorpion-layer {
     position: fixed;
     inset: 0;
@@ -94,12 +89,10 @@
     height: 100vh;
   }
 
-  /* ============ layout ============ */
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
   section { padding: 96px 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
 
-  /* ============ nav ============ */
   nav {
     position: sticky; top: 0; z-index: 100;
     background: color-mix(in srgb, var(--bg) 85%, transparent);
@@ -139,7 +132,6 @@
   .btn-primary { background: var(--text); color: var(--bg); }
   .btn-primary:hover { opacity: 0.85; }
 
-  /* theme toggle */
   .theme-toggle {
     width: 36px; height: 36px;
     border-radius: 8px;
@@ -155,7 +147,6 @@
   :root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
   :root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
-  /* ============ hero ============ */
   .hero { padding: 120px 0 96px; border-bottom: 1px solid var(--border); }
   .hero-grid {
     display: grid;
@@ -199,7 +190,6 @@
   }
   .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
 
-  /* preview card */
   .preview {
     background: var(--bg-elev);
     border: 1px solid var(--border-2);
@@ -279,7 +269,6 @@
     min-width: 44px;
   }
 
-  /* ============ section headers ============ */
   .section-head { max-width: 640px; margin-bottom: 56px; }
   .section-eyebrow {
     font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -292,7 +281,6 @@
   }
   .section-head p { color: var(--text-dim); font-size: 16px; margin: 0; }
 
-  /* ============ features ============ */
   .features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -323,7 +311,6 @@
   }
   .feature p { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.55; }
 
-  /* ============ platforms ============ */
   .platforms {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -373,7 +360,6 @@
     border-color: color-mix(in srgb, var(--accent) 30%, transparent);
   }
 
-  /* ============ steps ============ */
   .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -396,7 +382,6 @@
   }
   .step p { font-size: 14.5px; color: var(--text-dim); margin: 0; line-height: 1.6; }
 
-  /* ============ code ============ */
   .code-block {
     background: var(--code-bg);
     border: 1px solid var(--border-2);
@@ -430,7 +415,6 @@
   pre .cls { color: var(--code-class); }
   pre .var { color: var(--code-var); }
 
-  /* ============ faq ============ */
   .faq { border-top: 1px solid var(--border); }
   .faq details {
     border-bottom: 1px solid var(--border);
@@ -457,7 +441,6 @@
   }
   .faq a { color: var(--accent-soft); text-decoration: underline; text-underline-offset: 3px; }
 
-  /* ============ CTA ============ */
   .cta-block {
     text-align: center;
     padding: 80px 40px;
@@ -470,7 +453,6 @@
   .cta-block p { color: var(--text-dim); margin: 0 0 32px; }
   .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-  /* ============ footer ============ */
   footer {
     padding: 48px 0;
     border-top: 1px solid var(--border);
@@ -499,7 +481,6 @@
     flex-wrap: wrap; gap: 16px;
   }
 
-  /* ============ responsive ============ */
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
     .features { grid-template-columns: 1fr 1fr; }
@@ -526,7 +507,6 @@
 
 <canvas id="scorpion-layer"></canvas>
 
-<!-- ============ NAV ============ -->
 <nav>
   <div class="wrap nav-inner">
     <a href="#" class="logo">
@@ -551,7 +531,6 @@
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -591,7 +570,6 @@
   </div>
 </section>
 
-<!-- ============ FEATURES ============ -->
 <section id="features">
   <div class="wrap">
     <div class="section-head">
@@ -634,7 +612,6 @@
   </div>
 </section>
 
-<!-- ============ PLATFORMS ============ -->
 <section id="platforms">
   <div class="wrap">
     <div class="section-head">
@@ -677,7 +654,6 @@
   </div>
 </section>
 
-<!-- ============ HOW ============ -->
 <section id="how">
   <div class="wrap">
     <div class="section-head">
@@ -704,7 +680,6 @@
   </div>
 </section>
 
-<!-- ============ CODE ============ -->
 <section id="code">
   <div class="wrap">
     <div class="section-head">
@@ -720,10 +695,11 @@
 <pre><span class="com">// Inverse-kinematic chain used for the scorpion cursor trail.</span>
 <span class="com">// Same algorithm shown in the OpenMotion editor's "creature" plugin API.</span>
 
-<span class="kw">class</span> <span class="cls">LimSystem</span> {
+<span class="kw">class</span> <span class="cls">LimbSystem</span> {
   <span class="fn">constructor</span>(end, length, speed, creature) {
     <span class="kw">this</span>.<span class="var">creature</span> = creature;
     <span class="kw">this</span>.<span class="var">nodes</span> = [];
+    <span class="kw">var</span> node = end;
     <span class="kw">for</span> (<span class="kw">var</span> i = <span class="num">0</span>; i &lt; length; i++) {
       <span class="kw">this</span>.<span class="var">nodes</span>.<span class="fn">unshift</span>(node);
       node = node.parent;
@@ -735,15 +711,23 @@
     <span class="kw">this</span>.<span class="var">hip</span> = <span class="kw">this</span>.<span class="var">nodes</span>[<span class="num">0</span>].parent;
   }
 
-  <span class="fn">update</span>() {
-    <span class="kw">this</span>.<span class="fn">moveTo</span>(Input.mouse.x, Input.mouse.y);
+  <span class="fn">moveTo</span>(x, y) {
+    <span class="kw">this</span>.<span class="var">nodes</span>[<span class="num">0</span>].<span class="fn">updateRelative</span>(<span class="num">true</span>, <span class="num">true</span>);
+    <span class="kw">var</span> dist = Math.<span class="fn">hypot</span>(x - <span class="kw">this</span>.end.x, y - <span class="kw">this</span>.end.y);
+    <span class="kw">var</span> len = Math.<span class="fn">max</span>(<span class="num">0</span>, dist - <span class="kw">this</span>.speed);
+    <span class="kw">for</span> (<span class="kw">var</span> i = <span class="kw">this</span>.<span class="var">nodes</span>.length - <span class="num">1</span>; i &gt;= <span class="num">0</span>; i--) {
+      <span class="kw">var</span> node = <span class="kw">this</span>.<span class="var">nodes</span>[i];
+      <span class="kw">var</span> ang = Math.<span class="fn">atan2</span>(node.y - y, node.x - x);
+      node.x = x + len * Math.<span class="fn">cos</span>(ang);
+      node.y = y + len * Math.<span class="fn">sin</span>(ang);
+      x = node.x; y = node.y; len = node.size;
+    }
   }
 }</pre>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section id="faq">
   <div class="wrap">
     <div class="section-head">
@@ -783,7 +767,6 @@
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
 <section id="download">
   <div class="wrap">
     <div class="cta-block">
@@ -798,7 +781,6 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -846,9 +828,9 @@
 
 <script>
 /* ============================================================
-   Scorpion cursor — segmented chain following the mouse.
-   Matches the reference video: dense segments, side legs,
-   curled pincers, S-curve tail when idle.
+   Scorpion cursor — exact port of the original creature IK.
+   The tree: Creature → spinal segments → legs + tail.
+   Theme-aware: white in dark mode, near-black in light mode.
    ============================================================ */
 (function() {
   const canvas = document.getElementById('scorpion-layer');
@@ -869,246 +851,275 @@
   resize();
   window.addEventListener('resize', resize);
 
-  // ================= CONFIG =================
-  const SEGMENTS        = 56;
-  const SEG_SPACING     = 4.2;
-  const HEAD_SIZE       = 6.5;
-  const TAIL_TAPER      = 0.72;
-  const HEAD_EASE       = 0.10;
-  const SEG_EASE        = 0.42;
-  const WIGGLE_AMP      = 0.9;
-  const LEG_PAIRS       = 14;
-  const LEG_LEN_MIN     = 5;
-  const LEG_LEN_MAX     = 11;
-  const WALK_FREQ       = 0.09;
-  // ==========================================
-
-  const mouse = { x: W / 2, y: H / 2 };
-  const head  = { x: W / 2, y: H / 2, vx: 0, vy: 0 };
-  const segs  = [];
-  for (let i = 0; i < SEGMENTS; i++) {
-    segs.push({
-      x: W / 2,
-      y: H / 2,
-      angle: 0,
-      wobble: Math.random() * Math.PI * 2,
-    });
-  }
-
-  window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  }, { passive: true });
-
-  window.addEventListener('touchmove', e => {
-    if (e.touches[0]) {
-      mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY;
+  var Input = {
+    mouse: { x: W / 2, y: H / 2 }
+  };
+  document.addEventListener("mousemove", function(event) {
+    Input.mouse.x = event.clientX;
+    Input.mouse.y = event.clientY;
+  });
+  document.addEventListener("touchmove", function(event) {
+    if (event.touches[0]) {
+      Input.mouse.x = event.touches[0].clientX;
+      Input.mouse.y = event.touches[0].clientY;
     }
   }, { passive: true });
 
-  function getTheme() {
-    const s = getComputedStyle(document.documentElement);
-    return {
-      body: s.getPropertyValue('--scorpion').trim() || '#ffffff',
-      glow: s.getPropertyValue('--scorpion-glow').trim() || 'rgba(255,255,255,0.5)',
-    };
-  }
-  let theme = getTheme();
-  new MutationObserver(() => { theme = getTheme(); })
-    .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
-  const lerp = (a, b, t) => a + (b - a) * t;
-
-  let t = 0;
-  let idleTimer = 0;
-
-  function update() {
-    const prevX = head.x, prevY = head.y;
-    head.x = lerp(head.x, mouse.x, HEAD_EASE);
-    head.y = lerp(head.y, mouse.y, HEAD_EASE);
-    head.vx = head.x - prevX;
-    head.vy = head.y - prevY;
-
-    const speed = Math.sqrt(head.vx * head.vx + head.vy * head.vy);
-    if (speed < 0.4) idleTimer += 1; else idleTimer = 0;
-
-    segs[0].x = head.x;
-    segs[0].y = head.y;
-
-    for (let i = 1; i < segs.length; i++) {
-      const p = segs[i - 1];
-      const c = segs[i];
-      const dx = p.x - c.x;
-      const dy = p.y - c.y;
-      const d = Math.hypot(dx, dy) || 0.0001;
-
-      let tx = p.x - (dx / d) * SEG_SPACING;
-      let ty = p.y - (dy / d) * SEG_SPACING;
-
-      if (idleTimer > 12 && i > 6) {
-        const curve = Math.sin(i * 0.18 + t * 0.04) * 3.5 * (i / segs.length);
-        const nx = -dy / d, ny = dx / d;
-        tx += nx * curve;
-        ty += ny * curve;
-      }
-
-      c.x = lerp(c.x, tx, SEG_EASE);
-      c.y = lerp(c.y, ty, SEG_EASE);
-      c.angle = Math.atan2(p.y - c.y, p.x - c.x);
-    }
-
-    t += 1;
+  // read theme color each frame so the toggle updates live
+  function currentColor() {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue('--scorpion').trim() || '#ffffff';
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
+  var segmentCount = 0;
 
-    const bodyColor = theme.body;
-    const glowColor = theme.glow;
-
-    ctx.save();
-    ctx.shadowColor = glowColor;
-    ctx.shadowBlur = 18;
-
-    // legs (behind body)
-    for (let i = 3; i < Math.min(LEG_PAIRS + 3, segs.length); i++) {
-      const s = segs[i];
-      const idx = i - 3;
-      const phase = t * WALK_FREQ + idx * 0.55;
-      const perp = s.angle + Math.PI / 2;
-
-      for (const side of [-1, 1]) {
-        const sweep = Math.sin(phase + (side < 0 ? Math.PI : 0)) * 0.45;
-        const legAngle = perp + sweep * side;
-        const tIdx = idx / LEG_PAIRS;
-        const len = LEG_LEN_MAX - (LEG_LEN_MAX - LEG_LEN_MIN) * tIdx;
-        const r = (s.radius ?? 2);
-
-        const bx = s.x + Math.cos(legAngle) * r * 0.6;
-        const by = s.y + Math.sin(legAngle) * r * 0.6;
-        const mx = s.x + Math.cos(legAngle) * len * 0.6;
-        const my = s.y + Math.sin(legAngle) * len * 0.6;
-        const ex = s.x + Math.cos(legAngle + side * 0.3) * len;
-        const ey = s.y + Math.sin(legAngle + side * 0.3) * len;
-
-        ctx.beginPath();
-        ctx.moveTo(bx, by);
-        ctx.quadraticCurveTo(mx, my, ex, ey);
-        ctx.strokeStyle = bodyColor;
-        ctx.lineWidth = 1.3;
-        ctx.lineCap = 'round';
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(ex, ey, 0.9, 0, Math.PI * 2);
-        ctx.fillStyle = bodyColor;
-        ctx.fill();
-      }
+  class Segment {
+    constructor(parent, size, angle, range, stiffness) {
+      segmentCount++;
+      this.isSegment = true;
+      this.parent = parent;
+      if (typeof parent.children == "object") parent.children.push(this);
+      this.children = [];
+      this.size = size;
+      this.relAngle = angle;
+      this.defAngle = angle;
+      this.absAngle = parent.absAngle + angle;
+      this.range = range;
+      this.stiffness = stiffness;
+      this.updateRelative(false, true);
     }
-
-    // body
-    for (let i = segs.length - 1; i >= 0; i--) {
-      const s = segs[i];
-      const ti = i / (segs.length - 1);
-      const radius = HEAD_SIZE * (1 - TAIL_TAPER * ti);
-      s.radius = radius;
-
-      const wiggle = Math.sin(t * 0.08 + i * 0.4 + s.wobble) * WIGGLE_AMP * (i / segs.length);
-      const perp = s.angle + Math.PI / 2;
-      const dx = Math.cos(perp) * wiggle;
-      const dy = Math.sin(perp) * wiggle;
-
-      ctx.save();
-      ctx.translate(s.x + dx, s.y + dy);
-      ctx.rotate(s.angle);
+    updateRelative(iter, flex) {
+      this.relAngle = this.relAngle - 2 * Math.PI * Math.floor((this.relAngle - this.defAngle) / 2 / Math.PI + 0.5);
+      if (flex) {
+        this.relAngle = Math.min(
+          this.defAngle + this.range / 2,
+          Math.max(this.defAngle - this.range / 2,
+            (this.relAngle - this.defAngle) / this.stiffness + this.defAngle)
+        );
+      }
+      this.absAngle = this.parent.absAngle + this.relAngle;
+      this.x = this.parent.x + Math.cos(this.absAngle) * this.size;
+      this.y = this.parent.y + Math.sin(this.absAngle) * this.size;
+      if (iter) for (var i = 0; i < this.children.length; i++) this.children[i].updateRelative(iter, flex);
+    }
+    draw(iter) {
       ctx.beginPath();
-      ctx.ellipse(0, 0, radius * 1.15, radius * 0.85, 0, 0, Math.PI * 2);
-      ctx.fillStyle = bodyColor;
-      ctx.fill();
-      ctx.restore();
+      ctx.moveTo(this.parent.x, this.parent.y);
+      ctx.lineTo(this.x, this.y);
+      ctx.stroke();
+      if (iter) for (var i = 0; i < this.children.length; i++) this.children[i].draw(true);
+    }
+    follow(iter) {
+      var x = this.parent.x, y = this.parent.y;
+      var dist = Math.hypot(this.x - x, this.y - y);
+      this.x = x + this.size * (this.x - x) / dist;
+      this.y = y + this.size * (this.y - y) / dist;
+      this.absAngle = Math.atan2(this.y - y, this.x - x);
+      this.relAngle = this.absAngle - this.parent.absAngle;
+      this.updateRelative(false, true);
+      if (iter) for (var i = 0; i < this.children.length; i++) this.children[i].follow(true);
+    }
+  }
+
+  class LimbSystem {
+    constructor(end, length, speed, creature) {
+      this.end = end;
+      this.length = Math.max(1, length);
+      this.creature = creature;
+      this.speed = speed;
+      creature.systems.push(this);
+      this.nodes = [];
+      var node = end;
+      for (var i = 0; i < length; i++) {
+        this.nodes.unshift(node);
+        node = node.parent;
+        if (!node.isSegment) { this.length = i + 1; break; }
+      }
+      this.hip = this.nodes[0].parent;
+    }
+    moveTo(x, y) {
+      this.nodes[0].updateRelative(true, true);
+      var dist = Math.hypot(x - this.end.x, y - this.end.y);
+      var len = Math.max(0, dist - this.speed);
+      for (var i = this.nodes.length - 1; i >= 0; i--) {
+        var node = this.nodes[i];
+        var ang = Math.atan2(node.y - y, node.x - x);
+        node.x = x + len * Math.cos(ang);
+        node.y = y + len * Math.sin(ang);
+        x = node.x; y = node.y; len = node.size;
+      }
+      for (var i = 0; i < this.nodes.length; i++) {
+        var node = this.nodes[i];
+        node.absAngle = Math.atan2(node.y - node.parent.y, node.x - node.parent.x);
+        node.relAngle = node.absAngle - node.parent.absAngle;
+        for (var ii = 0; ii < node.children.length; ii++) {
+          var childNode = node.children[ii];
+          if (!this.nodes.includes(childNode)) childNode.updateRelative(true, false);
+        }
+      }
+    }
+    update(x, y) { this.moveTo(x, y); }
+  }
+
+  class LegSystem extends LimbSystem {
+    constructor(end, length, speed, creature, distOffset) {
+      super(end, length, speed, creature);
+      this.goalX = end.x;
+      this.goalY = end.y;
+      this.step = 0;
+      this.forwardness = 0;
+      this.reach = 0.9 * Math.hypot(this.end.x - this.hip.x, this.end.y - this.hip.y);
+      var relAngle = this.creature.absAngle - Math.atan2(this.end.y - this.hip.y, this.end.x - this.hip.x);
+      relAngle -= 2 * Math.PI * Math.floor(relAngle / 2 / Math.PI + 0.5);
+      this.swing = -relAngle + (2 * (relAngle < 0) - 1) * Math.PI / 2;
+      this.swingOffset = this.creature.absAngle - this.hip.absAngle;
+    }
+    update(x, y) {
+      this.moveTo(this.goalX, this.goalY);
+      if (this.step == 0) {
+        var dist = Math.hypot(this.end.x - this.goalX, this.end.y - this.goalY);
+        if (dist > 1) {
+          this.step = 1;
+          this.goalX = this.hip.x + this.reach * Math.cos(this.swing + this.hip.absAngle + this.swingOffset) + (2 * Math.random() - 1) * this.reach / 2;
+          this.goalY = this.hip.y + this.reach * Math.sin(this.swing + this.hip.absAngle + this.swingOffset) + (2 * Math.random() - 1) * this.reach / 2;
+        }
+      } else if (this.step == 1) {
+        var theta = Math.atan2(this.end.y - this.hip.y, this.end.x - this.hip.x) - this.hip.absAngle;
+        var dist = Math.hypot(this.end.x - this.hip.x, this.end.y - this.hip.y);
+        var forwardness2 = dist * Math.cos(theta);
+        var dF = this.forwardness - forwardness2;
+        this.forwardness = forwardness2;
+        if (dF * dF < 1) {
+          this.step = 0;
+          this.goalX = this.hip.x + (this.end.x - this.hip.x);
+          this.goalY = this.hip.y + (this.end.y - this.hip.y);
+        }
+      }
+    }
+  }
+
+  class Creature {
+    constructor(x, y, angle, fAccel, fFric, fRes, fThresh, rAccel, rFric, rRes, rThresh) {
+      this.x = x; this.y = y;
+      this.absAngle = angle;
+      this.fSpeed = 0; this.fAccel = fAccel; this.fFric = fFric; this.fRes = fRes; this.fThresh = fThresh;
+      this.rSpeed = 0; this.rAccel = rAccel; this.rFric = rFric; this.rRes = rRes; this.rThresh = rThresh;
+      this.children = []; this.systems = [];
+    }
+    follow(x, y) {
+      var dist = Math.hypot(this.x - x, this.y - y);
+      var angle = Math.atan2(y - this.y, x - this.x);
+      var accel = this.fAccel;
+      if (this.systems.length > 0) {
+        var sum = 0;
+        for (var i = 0; i < this.systems.length; i++) sum += this.systems[i].step == 0;
+        accel *= sum / this.systems.length;
+      }
+      this.fSpeed += accel * (dist > this.fThresh);
+      this.fSpeed *= 1 - this.fRes;
+      this.speed = Math.max(0, this.fSpeed - this.fFric);
+      var dif = this.absAngle - angle;
+      dif -= 2 * Math.PI * Math.floor(dif / (2 * Math.PI) + 0.5);
+      if (Math.abs(dif) > this.rThresh && dist > this.fThresh) this.rSpeed -= this.rAccel * (2 * (dif > 0) - 1);
+      this.rSpeed *= 1 - this.rRes;
+      if (Math.abs(this.rSpeed) > this.rFric) this.rSpeed -= this.rFric * (2 * (this.rSpeed > 0) - 1);
+      else this.rSpeed = 0;
+      this.absAngle += this.rSpeed;
+      this.absAngle -= 2 * Math.PI * Math.floor(this.absAngle / (2 * Math.PI) + 0.5);
+      this.x += this.speed * Math.cos(this.absAngle);
+      this.y += this.speed * Math.sin(this.absAngle);
+      this.absAngle += Math.PI;
+      for (var i = 0; i < this.children.length; i++) this.children[i].follow(true, true);
+      for (var i = 0; i < this.systems.length; i++) this.systems[i].update(x, y);
+      this.absAngle -= Math.PI;
+      this.draw(true);
+    }
+    draw(iter) {
+      var r = 4;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, r, Math.PI / 4 + this.absAngle, 7 * Math.PI / 4 + this.absAngle);
+      ctx.moveTo(this.x + r * Math.cos(7 * Math.PI / 4 + this.absAngle), this.y + r * Math.sin(7 * Math.PI / 4 + this.absAngle));
+      ctx.lineTo(this.x + r * Math.cos(this.absAngle) * Math.SQRT2, this.y + r * Math.sin(this.absAngle) * Math.SQRT2);
+      ctx.lineTo(this.x + r * Math.cos(Math.PI / 4 + this.absAngle), this.y + r * Math.sin(Math.PI / 4 + this.absAngle));
+      ctx.stroke();
+      if (iter) for (var i = 0; i < this.children.length; i++) this.children[i].draw(true);
+    }
+  }
+
+  var critter;
+
+  function buildScorpion() {
+    var s = 2.5;
+    var legs = 4;
+    var tail = 18;
+
+    critter = new Creature(
+      W / 2, H / 2, 0,
+      s * 10, s * 2, 0.5, 16,
+      0.5, 0.085, 0.5, 0.3
+    );
+    var spinal = critter;
+
+    // head + pincers
+    for (var i = 0; i < 4; i++) {
+      spinal = new Segment(spinal, s * 4, 0, Math.PI * 2 / 3, 1.1);
+      for (var ii = -1; ii <= 1; ii += 2) {
+        var node = new Segment(spinal, s * 3, ii, 0.1, 2);
+        for (var iii = 0; iii < 3; iii++) node = new Segment(node, s * 0.1, -ii * 0.1, 0.1, 2);
+      }
     }
 
-    ctx.restore();
+    // body + legs
+    for (var i = 0; i < legs; i++) {
+      if (i > 0) {
+        for (var ii = 0; ii < 5; ii++) {
+          spinal = new Segment(spinal, s * 4, 0, 1.571, 1.5);
+          for (var iii = -1; iii <= 1; iii += 2) {
+            var node = new Segment(spinal, s * 3, iii * 1.571, 0.1, 1.5);
+            for (var iv = 0; iv < 3; iv++) node = new Segment(node, s * 3, -iii * 0.3, 0.1, 2);
+          }
+        }
+      }
+      for (var ii = -1; ii <= 1; ii += 2) {
+        var node = new Segment(spinal, s * 10, ii * 0.785, 0, 8);
+        node = new Segment(node, s * 14, -ii * 0.785, 6.28, 1);
+        node = new Segment(node, s * 14, ii * 1.571, Math.PI, 2);
+        for (var iii = 0; iii < 3; iii++) new Segment(node, s * 4, (iii / 2 - 0.5) * 1.2, 0.1, 4);
+        new LegSystem(node, 3, s * 10, critter, 4);
+      }
+    }
 
-    // pincers
-    const headAngle = Math.atan2(head.vy, head.vx) || segs[0].angle || 0;
-    drawPincer(head.x, head.y, headAngle + 0.55, bodyColor, 1);
-    drawPincer(head.x, head.y, headAngle - 0.55, bodyColor, -1);
+    // tail
+    for (var i = 0; i < tail; i++) {
+      spinal = new Segment(spinal, s * 4, 0, Math.PI * 2 / 3, 1.1);
+      for (var ii = -1; ii <= 1; ii += 2) {
+        var node = new Segment(spinal, s * 3, ii, 0.1, 2);
+        for (var iii = 0; iii < 3; iii++) {
+          node = new Segment(node, s * 3 * (tail - i) / tail, -ii * 0.1, 0.1, 2);
+        }
+      }
+    }
 
-    // stinger
-    const tip = segs[segs.length - 1];
-    const prev = segs[segs.length - 2];
-    const tipAngle = Math.atan2(tip.y - prev.y, tip.x - prev.x);
-    drawStinger(tip.x, tip.y, tipAngle, bodyColor);
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = currentColor();
+      ctx.lineWidth = 1;
+      critter.follow(Input.mouse.x, Input.mouse.y);
+      requestAnimationFrame(loop);
+    }
+    loop();
   }
 
-  function drawPincer(x, y, angle, color, side) {
-    const armLen = 16;
-    const midX = x + Math.cos(angle) * armLen;
-    const midY = y + Math.sin(angle) * armLen;
-
-    const bendAngle = angle + 0.7 * side;
-    const tipLen = 11;
-    const tipX = midX + Math.cos(bendAngle) * tipLen;
-    const tipY = midY + Math.sin(bendAngle) * tipLen;
-
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.quadraticCurveTo(
-      x + Math.cos(angle) * armLen * 0.7,
-      y + Math.sin(angle) * armLen * 0.7,
-      midX, midY
-    );
-    ctx.lineTo(tipX, tipY);
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.8;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(tipX, tipY, 1.8, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-  }
-
-  function drawStinger(x, y, angle, color) {
-    const midX = x + Math.cos(angle) * 7;
-    const midY = y + Math.sin(angle) * 7;
-    const bend = angle + 0.6;
-    const tipX = midX + Math.cos(bend) * 7;
-    const tipY = midY + Math.sin(bend) * 7;
-
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.quadraticCurveTo(midX, midY, tipX, tipY);
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
-    ctx.lineCap = 'round';
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(tipX, tipY, 1.6, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-  }
-
-  function loop() {
-    update();
-    draw();
-    requestAnimationFrame(loop);
-  }
-  loop();
+  ctx.strokeStyle = currentColor();
+  ctx.lineWidth = 1;
+  buildScorpion();
 
   if (matchMedia('(hover: none)').matches) {
     canvas.style.display = 'none';
   }
 })();
 
-/* ============================================================
-   Theme toggle — persists in localStorage
-   ============================================================ */
+/* theme toggle */
 (function() {
   const root = document.documentElement;
   const btn = document.getElementById('themeBtn');
